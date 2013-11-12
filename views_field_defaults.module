@@ -1,0 +1,21 @@
+<?php
+
+function views_field_defaults_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'views_ui_config_item_form'){
+
+    $form['options']['custom_label']['#default_value'] = FALSE;
+    $form['options']['link_to_node']['#default_value'] = FALSE;
+    $form['options']['element_type_enable']['#default_value'] = TRUE;
+    $form['options']['element_label_type_enable']['#default_value'] = TRUE;
+    $form['options']['element_wrapper_type_enable']['#default_value'] = TRUE;
+    $form['options']['element_wrapper_class_enable']['#default_value'] = TRUE;
+    $form['options']['element_default_classes']['#default_value'] = FALSE;
+    $form['options']['element_type']['#default_value'] = 0;
+    $form['options']['element_label_type']['#default_value'] = 0;
+    $form['options']['element_wrapper_type']['#default_value'] = 'div';
+
+    $title = explode(':', $form['#title']);
+    $title = str_replace(" ", "", strtolower($title[count($title)-1]));
+    $form['options']['element_wrapper_class']['#default_value'] = $title;
+  }
+}
