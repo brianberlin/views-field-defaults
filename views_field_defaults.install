@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function views_field_defaults_install() {
+  db_query("UPDATE {system} SET weight = 11 WHERE name = 'views_field_defaults'");
+}
